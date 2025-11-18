@@ -22,10 +22,36 @@ def agregar_tarea():
     fecha=input("Ingrese la fecha (DD/MM/AAAA): ")
     Total_tareas.append((tarea,fecha))
     print("Tarea agregada exitosamente.")
+def eliminar_tarea():
+    for x in range(len(Total_tareas)):
+        print(f"{x + 1}. {Total_tareas[x][0]} - {Total_tareas[x][1]}")
+    try:
+        indice=int(input("Ingrese el número de la tarea que desea eliminar: "))
+        if indice < 1 or indice > len(Total_tareas):
+            print("Error: Índice inválido.")
+            return
+        Total_tareas.pop(indice - 1)
+        print("Tarea eliminada exitosamente.")
+    except ValueError:
+        print("Error: Debe ingresar un número entero válido.")
+def ver_tareas():
+    if not Total_tareas:
+        print("No hay tareas en la lista.")
+    else:
+        print("Lista de tareas:")
+        for x in range(len(Total_tareas)):
+            print(f"{x + 1}. {Total_tareas[x][0]} - {Total_tareas[x][1]}")
 while True:
   capturar= menu()
   if capturar==1:
-        agregar_tarea()
+         agregar_tarea()
+  elif capturar==2:
+        eliminar_tarea()
+  elif capturar==3:
+        ver_tareas()
+  elif capturar==4:
+        print("Saliendo del programa. ¡Hasta luego!")
+        break  
 
 
         
