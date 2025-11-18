@@ -17,9 +17,15 @@ def  menu():
             print("Error: Opción inválida. Por favor, seleccione una opción entre 1 y 4.")
             return menu()
         return opcion
-capturar= menu()
-
-
+def agregar_tarea():
+    tarea=input("Ingrese la tarea: ")
+    fecha=input("Ingrese la fecha (DD/MM/AAAA): ")
+    Total_tareas.append((tarea,fecha))
+    print("Tarea agregada exitosamente.")
+while True:
+  capturar= menu()
+  if capturar==1:
+        agregar_tarea()
 
 
         
